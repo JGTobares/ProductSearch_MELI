@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Attribute" representedClassName="Attribute" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value_id" optional="YES" attributeType="String"/>
+        <attribute name="value_name" optional="YES" attributeType="String"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="attributes" inverseEntity="Product"/>
+    </entity>
+    <entity name="AttributeDetails" representedClassName="AttributeDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="valueID" optional="YES" attributeType="String"/>
+        <attribute name="valueName" optional="YES" attributeType="String"/>
+        <relationship name="productdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetails" inverseName="attributes" inverseEntity="ProductDetails"/>
+    </entity>
+    <entity name="BuyBoxWinner" representedClassName="BuyBoxWinner" syncable="YES" codeGenerationType="class">
+        <attribute name="acceptsMercadopago" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="categoryID" optional="YES" attributeType="String"/>
+        <attribute name="condition" optional="YES" attributeType="String"/>
+        <attribute name="currencyID" optional="YES" attributeType="String"/>
+        <attribute name="internationalDeliveryMode" optional="YES" attributeType="String"/>
+        <attribute name="inventoryID" optional="YES" attributeType="String"/>
+        <attribute name="itemID" optional="YES" attributeType="String"/>
+        <attribute name="listingTypeID" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="productID" optional="YES" attributeType="String"/>
+        <attribute name="sellerID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="siteID" optional="YES" attributeType="String"/>
+        <attribute name="tier" optional="YES" attributeType="String"/>
+        <attribute name="warranty" optional="YES" attributeType="String"/>
+        <relationship name="saleterm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SaleTermDetails" inverseName="buyboxwinner" inverseEntity="SaleTermDetails"/>
+        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SellerDetails" inverseName="buyboxwinner" inverseEntity="SellerDetails"/>
+        <relationship name="selleraddress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SellerAddressDetails" inverseName="buyboxwinner" inverseEntity="SellerAddressDetails"/>
+        <relationship name="shipping" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShippingDetails" inverseName="buyboxwinner" inverseEntity="ShippingDetails"/>
+    </entity>
+    <entity name="CityDetails" representedClassName="CityDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SellerAddressDetails" inverseName="citydetails" inverseEntity="SellerAddressDetails"/>
+        <relationship name="state" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SellerAddressDetails" inverseName="statedetails" inverseEntity="SellerAddressDetails"/>
+    </entity>
+    <entity name="MainFeatureDetails" representedClassName="MainFeatureDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="productdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetails" inverseName="mainfeatures" inverseEntity="ProductDetails"/>
+    </entity>
+    <entity name="PickerAttributeDetails" representedClassName="PickerAttributeDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="attributeID" optional="YES" attributeType="String"/>
+        <attribute name="template" optional="YES" attributeType="String"/>
+        <relationship name="pickersdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PickerDetails" inverseName="attributes" inverseEntity="PickerDetails"/>
+    </entity>
+    <entity name="PickerDetails" representedClassName="PickerDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="pickerID" optional="YES" attributeType="String"/>
+        <attribute name="pickerName" optional="YES" attributeType="String"/>
+        <relationship name="attributes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PickerAttributeDetails" inverseName="pickersdetails" inverseEntity="PickerAttributeDetails"/>
+        <relationship name="productdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetails" inverseName="pickers" inverseEntity="ProductDetails"/>
+        <relationship name="products" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PickerProductDetails" inverseName="pickerdetails" inverseEntity="PickerProductDetails"/>
+    </entity>
+    <entity name="PickerProductDetails" representedClassName="PickerProductDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="permalink" optional="YES" attributeType="String"/>
+        <attribute name="pickerLabel" optional="YES" attributeType="String"/>
+        <attribute name="pictureID" optional="YES" attributeType="String"/>
+        <attribute name="productID" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <relationship name="pickerdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PickerDetails" inverseName="products" inverseEntity="PickerDetails"/>
+    </entity>
+    <entity name="Picture" representedClassName="Picture" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="pictures" inverseEntity="Product"/>
+    </entity>
+    <entity name="PictureDetails" representedClassName="PictureDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="maxHeight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="maxWidth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="productdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetails" inverseName="picturedetails" inverseEntity="ProductDetails"/>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
+        <attribute name="domain_id" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="listing_strategy" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="parent_id" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="attributes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Attribute" inverseName="product" inverseEntity="Attribute"/>
+        <relationship name="pictures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Picture" inverseName="product" inverseEntity="Picture"/>
+    </entity>
+    <entity name="ProductDetails" representedClassName="ProductDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="buyBoxActivationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="domain_id" optional="YES" attributeType="String"/>
+        <attribute name="family_name" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="parent_id" optional="YES" attributeType="String"/>
+        <attribute name="permalink" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="attributes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AttributeDetails" inverseName="productdetails" inverseEntity="AttributeDetails"/>
+        <relationship name="mainfeatures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MainFeatureDetails" inverseName="productdetails" inverseEntity="MainFeatureDetails"/>
+        <relationship name="pickers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PickerDetails" inverseName="productdetails" inverseEntity="PickerDetails"/>
+        <relationship name="picturedetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PictureDetails" inverseName="productdetails" inverseEntity="PictureDetails"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SettingsDetails" inverseName="productDetails" inverseEntity="SettingsDetails"/>
+        <relationship name="shortdescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShortDescriptionDetails" inverseName="productdetails" inverseEntity="ShortDescriptionDetails"/>
+    </entity>
+    <entity name="SaleTermDetails" representedClassName="SaleTermDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="valueID" optional="YES" attributeType="String"/>
+        <attribute name="valueName" optional="YES" attributeType="String"/>
+        <relationship name="buyboxwinner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BuyBoxWinner" inverseName="saleterm" inverseEntity="BuyBoxWinner"/>
+        <relationship name="valuestruct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ValueStructDetails" inverseName="saletermsdetails" inverseEntity="ValueStructDetails"/>
+    </entity>
+    <entity name="SellerAddressDetails" representedClassName="SellerAddressDetails" syncable="YES" codeGenerationType="class">
+        <relationship name="buyboxwinner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BuyBoxWinner" inverseName="selleraddress" inverseEntity="BuyBoxWinner"/>
+        <relationship name="citydetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CityDetails" inverseName="city" inverseEntity="CityDetails"/>
+        <relationship name="statedetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CityDetails" inverseName="state" inverseEntity="CityDetails"/>
+    </entity>
+    <entity name="SellerDetails" representedClassName="SellerDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="reputationLevelID" optional="YES" attributeType="String"/>
+        <relationship name="buyboxwinner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BuyBoxWinner" inverseName="seller" inverseEntity="BuyBoxWinner"/>
+    </entity>
+    <entity name="SettingsDetails" representedClassName="SettingsDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="listingStrategy" optional="YES" attributeType="String"/>
+        <relationship name="productDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetails" inverseName="settings" inverseEntity="ProductDetails"/>
+    </entity>
+    <entity name="ShippingDetails" representedClassName="ShippingDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="freeShipping" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="logisticType" optional="YES" attributeType="String"/>
+        <attribute name="mode" optional="YES" attributeType="String"/>
+        <attribute name="storePickUp" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="buyboxwinner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BuyBoxWinner" inverseName="shipping" inverseEntity="BuyBoxWinner"/>
+    </entity>
+    <entity name="ShortDescriptionDetails" representedClassName="ShortDescriptionDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="productdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetails" inverseName="shortdescription" inverseEntity="ProductDetails"/>
+    </entity>
+    <entity name="ValueStructDetails" representedClassName="ValueStructDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="saletermsdetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SaleTermDetails" inverseName="valuestruct" inverseEntity="SaleTermDetails"/>
+    </entity>
+</model>
